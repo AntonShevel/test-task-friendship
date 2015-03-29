@@ -1,0 +1,13 @@
+{
+    "name" : "graph-task",
+    "type" : "project",
+    "require": {
+        "silex/silex": "~1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    }
+}

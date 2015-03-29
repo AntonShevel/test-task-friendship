@@ -1,0 +1,14 @@
+# idea
+.idea/
+
+# git
+.git/
+
+
+# Composer
+/composer.phar
+/vendor
+
+
+# PHPUnit
+/phpunit.xml
