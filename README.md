@@ -14,9 +14,9 @@
 ### Users
 GET user/
 
-GET user/{id}
+GET user/{id}/
 
-POST user/add
+POST user/
 ```json
 {"name": "Test", "description": "test"}
 ```
@@ -24,20 +24,20 @@ POST user/add
 ### Friendship
 add friendship
 
-POST friendship/{id}?userId={currentUser}
+POST friendship/{id}/?userId={currentUser}
 
 confirm friendship
 
-PUT friendship/{id}?userId={currentUser}
+PUT friendship/{id}/?userId={currentUser}
 
 delete friendship
 
-DELETE friendship/{id}?userId={currentUser}
+DELETE friendship/{id}/?userId={currentUser}
 
 ### Friends
 GET friends/
 
-GET friends/{depth}
+GET friends/{depth}/
 
 
 Вместо currentUser мог быть какой-нибудь токен авторизации
