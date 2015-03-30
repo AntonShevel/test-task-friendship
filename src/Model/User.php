@@ -8,12 +8,11 @@
 
 namespace Model;
 
-class User
+class User extends AbstractModel
 {
-    private $db;
 
     public function __construct($db) {
-        $this->db = $db;
+        parent::__construct($db);
     }
 
     public function create($user) {

@@ -30,5 +30,7 @@ $app->error(function (\Exception $e, $code) use ($app) {
 
 $app->mount('/', new Controller\IndexController());
 $app->mount('/user', new Controller\UserController());
+$app->mount('/friendship', new Controller\FriendshipController());
+$app->mount('/friends', new Controller\FriendsController());
 
 return $app;

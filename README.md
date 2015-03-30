@@ -28,14 +28,16 @@ POST friendship/{id}?userId={currentUser}
 
 confirm friendship
 
-PUT friendships/{id}?userId={currentUser}
+PUT friendship/{id}?userId={currentUser}
 
 delete friendship
 
-DELETE friendships/{id}?userId={currentUser}
+DELETE friendship/{id}?userId={currentUser}
 
 ### Friends
 GET friends/
 
 GET friends/{depth}
 
+
+Вместо currentUser мог быть какой-нибудь токен авторизации
