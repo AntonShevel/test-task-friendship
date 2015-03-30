@@ -19,9 +19,9 @@ $app->before(function (Request $request) {
 });
 
 $app->error(function (\Exception $e, $code) use ($app) {
-//    if ($app['debug']) {
-//        return;
-//    }
+    if ($app['debug']) {
+        return;
+    }
         $output = new \stdClass();
         $output->code = $code;
         $output->error = $e->getMessage();

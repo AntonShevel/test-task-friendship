@@ -9,6 +9,7 @@
 
 use Silex\Application;
 
-class GraphApplication extends Application{
+class FriendshipApplication extends Application
+{
     use Application\UrlGeneratorTrait;
 }

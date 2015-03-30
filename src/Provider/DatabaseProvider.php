@@ -11,9 +11,11 @@ namespace Provider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
-class DatabaseProvider implements ServiceProviderInterface {
+class DatabaseProvider implements ServiceProviderInterface
+{
 
-    public function register(Application $app) {
+    public function register(Application $app)
+    {
 
         $app['db'] = $app->share(function ($app) {
             $uri = sprintf('mongodb://%s', $app['db.config']['host']);
@@ -23,6 +25,8 @@ class DatabaseProvider implements ServiceProviderInterface {
 
     }
 
-    public function boot(Application $app) {
+    public function boot(Application $app)
+    {
+
     }
 }

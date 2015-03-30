@@ -16,7 +16,8 @@ class FriendshipController implements ControllerProviderInterface
 {
     private $friendship;
 
-    public function connect(Application $app) {
+    public function connect(Application $app)
+    {
         $this->friendship = new Friendship($app['db']);
         $controllers = $app['controllers_factory'];
         $controllers->post('/{targetId}/', array($this, 'requestFriendship'));
@@ -26,7 +27,8 @@ class FriendshipController implements ControllerProviderInterface
         return $controllers;
     }
 
-    public function requestFriendship(Application $app, $targetId) {
+    public function requestFriendship(Application $app, $targetId)
+    {
 
         $userId = $app['request']->get('userId');
         if ($userId == $targetId) {
@@ -35,7 +37,8 @@ class FriendshipController implements ControllerProviderInterface
         return $app->json($this->friendship->request($targetId, $userId));
     }
 
-    public function confirmFriendship(Application $app, $targetId) {
+    public function confirmFriendship(Application $app, $targetId)
+    {
 
         $userId = $app['request']->get('userId');
         $result = $this->friendship->confirm($targetId, $userId);
@@ -45,13 +48,15 @@ class FriendshipController implements ControllerProviderInterface
         return $app->json($result);
     }
 
-    public function removeFriendship(Application $app, $targetId) {
+    public function removeFriendship(Application $app, $targetId)
+    {
 
         $userId = $app['request']->get('userId');
         return $app->json($this->friendship->remove($targetId, $userId));
     }
 
-    public function showRequests(Application $app) {
+    public function showRequests(Application $app)
+    {
         $userId = $app['request']->get('userId');
         return $app->json($this->friendship->show($userId));
     }

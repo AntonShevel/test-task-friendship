@@ -12,11 +12,13 @@ use MongoId;
 
 class Friendship extends AbstractModel
 {
-    public function __construct($db) {
+    public function __construct($db)
+    {
         parent::__construct($db);
     }
 
-    public function request($targetId, $userId) {
+    public function request($targetId, $userId)
+    {
         $targetMongoId = new MongoId($targetId);
         $userMongoId = new MongoId($userId);
         return $this->db->users->update(
@@ -25,14 +27,16 @@ class Friendship extends AbstractModel
         );
     }
 
-    public function confirm($targetId, $userId) {
+    public function confirm($targetId, $userId)
+    {
         if ($this->isRequestSent($targetId, $userId)) {
             return $this->request($targetId, $userId);
         }
         return false;
     }
 
-    public function remove($targetId, $userId) {
+    public function remove($targetId, $userId)
+    {
         $targetMongoId = new MongoId($targetId);
         $userMongoId = new MongoId($userId);
         return $this->db->users->update(
@@ -41,7 +45,8 @@ class Friendship extends AbstractModel
         );
     }
 
-    public function show($userId) {
+    public function show($userId)
+    {
         $userMongoId = new MongoId($userId);
         //should use mapReduce
         $requests = $this->db->users->findOne(['_id'=>$userMongoId], ['friendship'=>true]);
@@ -52,10 +57,10 @@ class Friendship extends AbstractModel
         ]));
     }
 
-    private function isRequestSent($targetId, $userId) {
+    private function isRequestSent($targetId, $userId)
+    {
         $targetMongoId = new MongoId($targetId);
         $userMongoId = new MongoId($userId);
         return $this->db->users->find(['_id'=>$targetMongoId, 'friendship'=>$userMongoId])->count() > 0;
     }
-
 }

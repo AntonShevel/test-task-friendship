@@ -19,7 +19,8 @@ class UserController implements ControllerProviderInterface
     /* @var User */
     private $user;
 
-    public function connect(Application $app) {
+    public function connect(Application $app)
+    {
         $this->user = new User($app['db']);
         /* @var \Silex\ControllerCollection $controllers */
         $controllers = $app['controllers_factory'];
@@ -29,20 +30,23 @@ class UserController implements ControllerProviderInterface
         return $controllers;
     }
 
-    public function showUsers(Application $app) {
+    public function showUsers(Application $app)
+    {
         $users = [];
-        foreach($this->user->all() as $user) {
+        foreach ($this->user->all() as $user) {
             $users[] = $user;
         }
         return $app->json($users);
     }
 
-    public function showUser(Application $app, $userId) {
+    public function showUser(Application $app, $userId)
+    {
         $user = $this->user->get($userId);
         return $app->json($user);
     }
 
-    public function createUser(Application $app) {
+    public function createUser(Application $app)
+    {
         return $app->json($this->user->create([
             'name' => $app['request']->get('name'),
             'description' => $app['request']->get('description'),

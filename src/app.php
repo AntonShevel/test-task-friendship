@@ -9,7 +9,7 @@
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 
-$app = new GraphApplication();
+$app = new FriendshipApplication();
 $app->register(new ServiceControllerServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 $app->register(new \Provider\DatabaseProvider());

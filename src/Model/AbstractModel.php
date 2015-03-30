@@ -12,13 +12,15 @@ abstract class AbstractModel
 {
     protected $db;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
-    protected function showAll($cursor) {
+    protected function showAll($cursor)
+    {
         $result = [];
-        foreach($cursor as $element) {
+        foreach ($cursor as $element) {
             $result[] = $element;
         }
         return $result;
